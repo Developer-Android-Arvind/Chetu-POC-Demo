@@ -3,16 +3,18 @@ package com.easy_ride
 import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
-import androidx.navigation.compose.rememberNavController
-import com.easy_ride.presentation.ui.LoginScreen
-import com.easy_ride.presentation.util.CircularProgress
+import androidx.compose.ui.platform.LocalContext
+import com.easy_ride.presentation.feature.login.LoginScreen
+import com.easy_ride.util.CircularProgress
+import java.io.InputStream
 
 @Composable
 fun EasyRideAppState(
-        appState: State<MainActivityUIState>,
+        appState: State<MainActivityUIState>
    ) {
-    val navController = rememberNavController()
-
+    val context = LocalContext.current
+    val inputStream: InputStream = context.resources.openRawResource(R.raw.basichouse)
+    Log.d("TAG", "inputStream${inputStream}")
     when (appState.value) {
         MainActivityUIState.Loading -> {
             Log.d("TAG", "EasyRideAppState: Loading")
@@ -20,7 +22,7 @@ fun EasyRideAppState(
         }
         is MainActivityUIState.Success -> {
             Log.d("TAG", "EasyRideAppState: Success")
-            LoginScreen()
+            //LoginScreen()
         }
     }
 }

@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 
 import androidx.navigation.NavController
+import com.easy_ride.navigation.AppNavHost
 import com.easy_ride.ui.theme.EasyRideTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,23 +29,20 @@ class MainActivity : ComponentActivity() {
         val shouldKeepSplashScree = mainActivityViewModel.state.value.shouldKeepSplashScree()
         Log.d("TAG", "onCreate:$shouldKeepSplashScree")
         mainActivityViewModel.showLoader()
-
-
         setContent {
-            EasyRideTheme {
-                AppContent()
-            }
 
+            EasyRideTheme {
+                AppNavHost()
+                //AppContent()
+            }
         }
     }
-
 
     @Composable
     fun AppContent() {
         val appState = mainActivityViewModel.state.collectAsState()
         EasyRideAppState(appState)
     }
-
 
 }
 

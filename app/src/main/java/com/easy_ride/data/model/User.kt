@@ -1,13 +1,16 @@
 package com.easy_ride.data.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "UserDetail")
 data class User(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val userName: String = "",
-    val email: String = "",
-    val phone: String = "",
-    val aadhaarNumber: String = ""
-)
+    val id: Int = 0,
+    var userName: String = "",
+    var email: String = "",
+    var phone: String = "",
+    var aadhaarNumber: String = "",
+    var password: String = ""
+) {
+
+    fun getUserEmpty(): User {
+        return User()
+    }
+
+}

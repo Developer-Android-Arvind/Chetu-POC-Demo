@@ -1,4 +1,4 @@
-package com.easy_ride.presentation.util
+package com.easy_ride.util
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,3 +23,4 @@ fun CircularProgress() {
         )
     }
 }
+

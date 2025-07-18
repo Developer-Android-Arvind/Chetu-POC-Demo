@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.serialization)
 
 }
 
@@ -81,6 +82,15 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     // Google Maps
-    implementation("com.google.android.gms:play-services-maps:18.2.0") // Check for latest
-    implementation("com.google.maps.android:maps-compose:4.3.3") //
+    implementation(libs.play.services.maps) // Check for latest
+    implementation(libs.maps.compose) //
+
+
+    implementation (libs.filament.android)
+    implementation (libs.gltfio.android)
+
+
+    // this support .ifc files(Industry Foundation Classes) and help to view on Android
+
+    //implementation (libs.ifc.viewer)
 }
