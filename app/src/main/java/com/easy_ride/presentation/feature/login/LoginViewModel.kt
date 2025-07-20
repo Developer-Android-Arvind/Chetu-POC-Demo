@@ -62,6 +62,7 @@ class LoginViewModel : ViewModel() {
                 }
             }
         }
+        return false
     }
 
     fun clearUserInput() {
