@@ -2,20 +2,28 @@ package com.easy_ride.util
 
 import android.text.InputType
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.Placeholder
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.easy_ride.R
 
@@ -72,13 +80,28 @@ fun CustomOutlineInputBox(
 }
 
 @Composable
-fun CustomButton(modifier: Modifier = Modifier, label: String, onClick: () -> Unit) {
+fun CustomButton(modifier: Modifier = Modifier,isEnable:Boolean,label: String, onClick: () -> Unit) {
     Button(
         onClick = { onClick() },
+        enabled = isEnable,
         modifier = modifier
             .height(50.dp)
             .width(140.dp)
     ) {
         Text(label)
+    }
+}
+
+
+@Composable
+@Preview
+fun CustomCircularProgress() {
+    Column(modifier = Modifier.fillMaxSize().background(Color.Transparent), Arrangement.Center, Alignment.CenterHorizontally) {
+        CircularProgressIndicator(
+            modifier = Modifier
+                .wrapContentSize(),// Optional: Add padding, size, etc.
+            color = Color.Black, // Optional: Customize color
+            strokeWidth = 4.dp // Optional: Customize thickness
+        )
     }
 }

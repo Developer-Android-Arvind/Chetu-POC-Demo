@@ -1,15 +1,19 @@
 package com.easy_ride.presentation.feature.login
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.easy_ride.data.model.User
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
 
-    private val _loginUIState = MutableStateFlow(LoginUIState())
+    private val _loginUIState = MutableStateFlow(LoginUIState(loading =false))
     var loginUIState: StateFlow<LoginUIState> = _loginUIState.asStateFlow()
 
     fun updateUserName(userName: String) {
@@ -31,14 +35,6 @@ class LoginViewModel : ViewModel() {
     fun onLoginClick(): Boolean {
         _loginUIState.update {
             it.copy(error = true)
-        }
-        if (_loginUIState.value.data.userName.isNotEmpty() && _loginUIState.value.data.password.isNotEmpty()) {
-            _loginUIState.value = _loginUIState.value.copy(error = false)
-            return true
-        } else if (_loginUIState.value.data.userName.isEmpty()) {
-            _loginUIState.value = _loginUIState.value.copy(isUserNameEmpty = true)
-        } else if (loginUIState.value.data.password.isEmpty()) {
-            _loginUIState.value = _loginUIState.value.copy(isUserPasswordEmpty = true)
         }
         return false
     }
