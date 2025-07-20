@@ -33,8 +33,11 @@ class LoginViewModel : ViewModel() {
     }
 
     fun onLoginClick(): Boolean {
-        _loginUIState.update {
-            it.copy(error = true)
+        _loginUIState.value=_loginUIState.value.copy(loading = true)
+        viewModelScope.launch {
+            delay(5000)
+            _loginUIState.value=_loginUIState.value.copy(loading = false)
+            _loginUIState.value=_loginUIState.value.copy(success = true)
         }
         return false
     }
