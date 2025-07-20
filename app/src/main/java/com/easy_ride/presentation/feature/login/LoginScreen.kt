@@ -85,7 +85,6 @@ fun LoginScreen(
         onRegisterClicked = { onRegisterClicked() },
         onForgotPasswordClicked = { onForgotPasswordClicked() }
     )
-
 }
 
 @Composable
