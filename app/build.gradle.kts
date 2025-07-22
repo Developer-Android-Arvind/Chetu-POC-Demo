@@ -61,6 +61,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // for ConstraintLayout
+    implementation (libs.androidx.constraintlayout.compose)
+
     //for splash
     implementation(libs.androidx.core.splashscreen)
 
