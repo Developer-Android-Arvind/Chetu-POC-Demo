@@ -173,7 +173,7 @@ fun LoginScreenContent(
                         ) {
                             CustomButton(
                                 modifier = Modifier,
-                                "Login",
+                                label = "Login",
                                 isEnabled = !(uiState.isUserNameEmpty || uiState.isUserPasswordEmpty),
                                 onClick = {
                                     onLoginClicked()

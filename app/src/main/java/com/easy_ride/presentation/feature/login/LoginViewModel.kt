@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 class LoginViewModel : ViewModel() {
 
     private val _loginUIState = MutableStateFlow(LoginUIState())
-    var loginUIState: StateFlow<LoginUIState> = _loginUIState.asStateFlow()
+    val loginUIState: StateFlow<LoginUIState> = _loginUIState.asStateFlow()
 
     private val _loginUiEvent = MutableSharedFlow<LoginUiEvent>()
     val loginUiEvent: SharedFlow<LoginUiEvent> = _loginUiEvent.asSharedFlow()
@@ -62,7 +62,7 @@ class LoginViewModel : ViewModel() {
                 }
             }
         }
-        return false
+
     }
 
     fun clearUserInput() {

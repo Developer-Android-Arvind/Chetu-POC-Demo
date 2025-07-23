@@ -21,7 +21,11 @@ fun NavGraphBuilder.loginComposable(navController: NavHostController) {
         LoginScreen(
             loginViewModel = loginViewModel,
             onLoginClicked = {
-it
+                navController.navigate(AppDestinations.Register)
+
+            },
+            onForgotPasswordClicked = {
+                navController.navigate(AppDestinations.Register)
             },
             onRegisterClicked = {
                 navController.navigate(AppDestinations.Register)

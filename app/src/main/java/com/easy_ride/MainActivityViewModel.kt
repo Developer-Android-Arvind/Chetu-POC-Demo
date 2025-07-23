@@ -17,7 +17,6 @@ class MainActivityViewModel: ViewModel()
         viewModelScope.launch {
             delay(5000)
             _state.value=MainActivityUIState.Success("Timer Completed")
-
         }
     }
 }
@@ -28,6 +27,5 @@ sealed interface MainActivityUIState
     data class Success(val data:String):MainActivityUIState
 
     fun shouldKeepSplashScree()= this is Loading
-
 
 }
