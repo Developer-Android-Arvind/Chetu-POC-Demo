@@ -13,6 +13,7 @@ fun EasyRideAppState(
         appState: State<MainActivityUIState>
    ) {
     val context = LocalContext.current
+
     when (appState.value) {
         MainActivityUIState.Loading -> {
             Log.d("TAG", "EasyRideAppState: Loading")
