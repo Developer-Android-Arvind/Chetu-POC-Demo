@@ -4,9 +4,6 @@ import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.ui.platform.LocalContext
-import com.easy_ride.presentation.feature.login.LoginScreen
-import com.easy_ride.util.CircularProgress
-import java.io.InputStream
 
 @Composable
 fun EasyRideAppState(
